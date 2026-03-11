@@ -2,23 +2,23 @@ const express = require('express');
 const router = express.Router();
 
 const pacienteCtrl = require('../controllers/paciente.controller');
-const authMiddleware = require('../middlewares/auth.middleware');
+// const authMiddleware = require('../middlewares/auth.middleware'); // temporalmente desactivado
 
-// GET /api/pacientes/ -> Obtener todos los pacientes (PROTEGIDA)
-// POST /api/pacientes/ -> Crear un nuevo paciente (NO PROTEGIDA, ya que es el registro público)
+// GET /api/pacientes/ -> Obtener todos los pacientes
+// POST /api/pacientes/ -> Crear un nuevo paciente
 router.route('/')
-    .get(authMiddleware, pacienteCtrl.getPacientes)
+    .get(pacienteCtrl.getPacientes)
     .post(pacienteCtrl.createPaciente);
 
-// Nueva ruta para la inserción masiva de pacientes (PROTEGIDA)
-router.post('/bulk', authMiddleware, pacienteCtrl.createMultiplesPacientes);
+// Nueva ruta para la inserción masiva de pacientes
+router.post('/bulk', pacienteCtrl.createMultiplesPacientes);
 
-// GET /api/pacientes/:id -> Obtener un solo paciente por ID (PROTEGIDA)
-// PUT /api/pacientes/:id -> Actualizar un paciente por ID (PROTEGIDA)
-// DELETE /api/pacientes/:id -> Eliminar un paciente por ID (PROTEGIDA)
+// GET /api/pacientes/:id -> Obtener un solo paciente por ID
+// PUT /api/pacientes/:id -> Actualizar un paciente
+// DELETE /api/pacientes/:id -> Eliminar un paciente
 router.route('/:id')
-    .get(authMiddleware, pacienteCtrl.getUnicoPaciente)
-    .put(authMiddleware, pacienteCtrl.editarPaciente)
-    .delete(authMiddleware, pacienteCtrl.eliminarPaciente);
+    .get(pacienteCtrl.getUnicoPaciente)
+    .put(pacienteCtrl.editarPaciente)
+    .delete(pacienteCtrl.eliminarPaciente);
 
 module.exports = router;

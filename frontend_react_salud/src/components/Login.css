@@ -1,0 +1,151 @@
+/* Contenedor principal */
+
+.login-container{
+display:flex;
+height:100vh;
+width:100%;
+font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* Lado izquierdo (formulario) */
+
+.login-left{
+width:40%;
+background:#ffffff;
+display:flex;
+flex-direction:column;
+justify-content:center;
+padding:80px;
+box-shadow:0px 0px 20px rgba(0,0,0,0.05);
+}
+
+
+.login-left h3{
+font-weight:600;
+color:#2c3e50;
+}
+
+
+.login-left p{
+font-size:14px;
+color:#777;
+}
+
+
+/* Inputs */
+
+.login-left input{
+height:45px;
+border-radius:6px;
+border:1px solid #ddd;
+padding-left:12px;
+}
+
+
+.login-left input:focus{
+outline:none;
+border-color:#0d6efd;
+box-shadow:0 0 4px rgba(13,110,253,0.3);
+}
+
+
+/* Checkbox + link */
+
+.login-options{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+
+.remember-box{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+
+.remember-box input{
+width:16px;
+height:16px;
+cursor:pointer;
+}
+
+
+.remember-box label{
+font-size:14px;
+cursor:pointer;
+}
+
+
+.forgot-link{
+font-size:13px;
+text-decoration:none;
+color:#0d6efd;
+}
+
+
+.forgot-link:hover{
+text-decoration:underline;
+}
+
+
+/* Botón */
+
+.login-left button{
+height:45px;
+font-size:16px;
+border-radius:6px;
+}
+
+
+/* Lado derecho (imagen) */
+
+.login-right{
+width:60%;
+position:relative;
+overflow:hidden;
+}
+
+
+.login-right img{
+width:100%;
+height:100vh;
+object-fit:cover;
+}
+
+
+/* Overlay oscuro sobre la imagen */
+
+.login-right::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.15);
+}
+
+
+/* Responsive (tablet y móvil) */
+
+@media(max-width:900px){
+
+.login-container{
+flex-direction:column;
+}
+
+.login-left{
+width:100%;
+height:100vh;
+padding:40px;
+}
+
+.login-right{
+display:none;
+}
+
+}
